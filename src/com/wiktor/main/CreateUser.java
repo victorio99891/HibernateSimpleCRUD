@@ -19,7 +19,7 @@ public class CreateUser {
         Session session = factory.getCurrentSession();
 
         try {
-            User user = new User("Jakub", "black");
+            User user = new User("Majka", "aquamarine");
             session.beginTransaction();
             System.out.println("Saving the student...");
             session.save(user);

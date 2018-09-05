@@ -21,7 +21,7 @@ public class DeleteUser {
         try {
             session.beginTransaction();
 
-            // session.createQuery("delete from User u where u.id=7").executeUpdate();
+            session.createQuery("delete from User u where id=5").executeUpdate();
 
             User user = session.get(User.class, 6);
             session.delete(user);
