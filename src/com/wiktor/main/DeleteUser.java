@@ -1,12 +1,13 @@
 package com.wiktor.main;
 
-
 import com.wiktor.etities.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateUser {
+import java.util.List;
+
+public class DeleteUser {
 
     public static void main(String[] args) {
 
@@ -17,12 +18,14 @@ public class CreateUser {
 
 
         Session session = factory.getCurrentSession();
-
         try {
-            User user = new User("Jakub", "black");
             session.beginTransaction();
-            System.out.println("Saving the student...");
-            session.save(user);
+
+            // session.createQuery("delete from User u where u.id=7").executeUpdate();
+
+            User user = session.get(User.class, 6);
+            session.delete(user);
+
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,4 +36,10 @@ public class CreateUser {
 
     }
 
+
+    private static void displayUsers(List<User> userList) {
+        for (User user : userList) {
+            System.out.println(user.toString());
+        }
+    }
 }

@@ -41,6 +41,8 @@ public class UpdateUser {
 
 
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             factory.close();
         }

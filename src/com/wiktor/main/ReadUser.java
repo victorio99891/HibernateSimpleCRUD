@@ -54,6 +54,8 @@ public class ReadUser {
 
 
             session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             factory.close();
         }
